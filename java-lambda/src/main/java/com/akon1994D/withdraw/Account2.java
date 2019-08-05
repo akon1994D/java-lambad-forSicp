@@ -3,7 +3,6 @@ package com.akon1994D.withdraw;
 import com.akon1994D.lambda.AbstractIterator;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
