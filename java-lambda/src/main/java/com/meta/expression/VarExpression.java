@@ -13,13 +13,11 @@ import com.meta.Value;
 public class VarExpression extends Expression {
 
     private Symbol symbol;
-    private Symbol varType;
 
     private Expression init;
 
-    public VarExpression(Symbol symbol, Symbol varType, Expression init) {
+    public VarExpression(Symbol symbol, Expression init) {
         this.symbol = symbol;
-        this.varType = varType;
         this.init = init;
     }
 
@@ -27,7 +25,6 @@ public class VarExpression extends Expression {
     public Value eval(Env env) {
         Value value = init.eval(env);
         // 求得结果放入到env中
-        symbol.setType(varType);
         env.put(symbol, value);
         return value;
     }

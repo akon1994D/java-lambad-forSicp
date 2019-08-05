@@ -5,7 +5,22 @@ package com.meta;
  * @description:
  * @date: 2019-8-5
  */
-public abstract class Symbol {
+public class Symbol {
+    private String symbol;
+    private Type type;
 
-    public abstract void setType(Symbol symbol);
+    public Symbol(String symbol, Type type) {
+        this.symbol = symbol;
+        this.type = type;
+    }
+    public  void setType(Type type){
+        this.type = type;
+    }
+
+
+
+
+    public enum Type{
+        INT;
+    }
 }

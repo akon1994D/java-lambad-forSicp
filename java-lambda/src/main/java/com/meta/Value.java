@@ -7,6 +7,6 @@ package com.meta;
  */
 public abstract class Value {
 
-    public abstract void setType();
+    public abstract void setType(Symbol symbol);
 
 }

@@ -20,4 +20,8 @@ public class Env {
         Value value = map.get(symbol);
         return (T) value;
     }
+
+    public static Env instance(){
+        return  new Env();
+    }
 }

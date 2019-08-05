@@ -1,5 +1,7 @@
 package com.meta;
 
+import com.meta.util.Parser;
+
 /**
  * @author: whp
  * @description:
@@ -7,8 +9,11 @@ package com.meta;
  */
 public class Eval {
 
-    public static void eval(Expression expression, Env env){
 
+    public static void main(String[] args) {
+        Expression expression = Parser.parse("");
+        Env env = Env.instance();
+        expression.eval(env);
     }
 
 }
