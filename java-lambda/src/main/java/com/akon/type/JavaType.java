@@ -1,16 +1,27 @@
 package com.akon.type;
 
-public enum JavaType {
+import com.akon.imodel.Value;
 
-    BYTE,
-    SHORT,
-    INT,
-    LONG,
-    CHAR,
-    FLOAT,
-    DOUBLE,
-    REFERENCE,
-    PROCEDURE;
+import java.util.List;
+import java.util.Optional;
+
+public enum JavaType {
+    //（byte、short、char）---> int ---> long ---> folat ---> double
+    BYTE(0x01),
+    SHORT(0x01),
+    CHAR(0x01),
+    INT(0x02),
+    LONG(0x03),
+    FLOAT(0x04),
+    DOUBLE(0x05),
+    REFERENCE(0x06),
+    PROCEDURE(0x07);
+
+    int value;
+
+    JavaType(int value) {
+        this.value = value;
+    }
 
     public static JavaType getType(Object o){
         if(o instanceof Byte){
@@ -31,7 +42,9 @@ public enum JavaType {
             return JavaType.REFERENCE;
         }
     }
-
-
+    public static JavaType change(List<Value> values){
+        Optional<Value> reduce = values.stream().reduce((x, y) -> x.getType().value > y.getType().value ? x : y);
+        return reduce.get().getType();
+    }
 
 }
