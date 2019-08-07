@@ -1,6 +1,6 @@
 package com.akon.imodel;
 
-public interface Symbol {
+public interface Symbol extends Expression{
 
     String getSymbol();
 }

@@ -1,6 +1,9 @@
 package com.akon.model;
 
+import com.akon.imodel.Env;
 import com.akon.imodel.Symbol;
+import com.akon.imodel.Value;
+import com.akon.type.JavaType;
 
 /**
  * @author: whp
@@ -16,5 +19,10 @@ public class DefaultSymbol implements Symbol {
     @Override
     public String getSymbol() {
         return symbolString;
+    }
+
+    @Override
+    public Value eval(Env env) {
+        return new DefaultValue(JavaType.SYMBOL, symbolString);
     }
 }

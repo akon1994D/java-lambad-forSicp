@@ -15,7 +15,9 @@ public enum JavaType {
     FLOAT(0x04),
     DOUBLE(0x05),
     REFERENCE(0x06),
-    PROCEDURE(0x07);
+    PROCEDURE(0x07),
+    BOOLEAN(0x08),
+    SYMBOL(0x09);
 
     int value;
 
@@ -38,6 +40,8 @@ public enum JavaType {
             return JavaType.FLOAT;
         }else if (o instanceof  Double){
             return JavaType.DOUBLE;
+        }else if(o instanceof Boolean){
+            return JavaType.BOOLEAN;
         }else{
             return JavaType.REFERENCE;
         }

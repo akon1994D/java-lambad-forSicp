@@ -4,6 +4,7 @@ import com.akon.imodel.Env;
 import com.akon.imodel.Expression;
 import com.akon.imodel.Symbol;
 import com.akon.imodel.Value;
+import com.akon.model.Identifier;
 
 /**
  * @author: whp
@@ -12,17 +13,16 @@ import com.akon.imodel.Value;
  */
 public class VarExp implements Expression {
 
-    private Symbol symbol;
-
+    private Identifier symbol;
     private Expression init;
 
-    public VarExp(Symbol symbol, Expression init) {
+    public VarExp(Identifier symbol, Expression init) {
         this.symbol = symbol;
         this.init = init;
     }
 
     @Override
-    public Value eval(Env env) {
+    public Value eval(Env env) throws Exception {
         Value value = init.eval(env);
         // 求得结果放入到env中
         env.define(symbol, value);

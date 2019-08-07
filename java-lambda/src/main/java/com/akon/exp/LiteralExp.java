@@ -21,7 +21,7 @@ public class LiteralExp implements Expression {
     }
 
     @Override
-    public Value eval(Env env) {
+    public Value eval(Env env) throws Exception{
         if(value.getType().equals(JavaType.REFERENCE)){
             return env.getValue((Symbol)value.getValue());
         }else{
